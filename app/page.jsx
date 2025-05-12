@@ -2,13 +2,8 @@
 
 import dynamic from "next/dynamic";
 
-const HeroSection = dynamic(
-  () => import("./components/homepage/hero-section"),
-  { ssr: false }
-);
-const AboutSection = dynamic(() => import("./components/homepage/about"), {
-  ssr: false,
-});
+import HeroSection from "./components/homepage/hero-section";
+import AboutSection from "./components/homepage/about";
 const Experience = dynamic(() => import("./components/homepage/experience"), {
   ssr: false,
 });
