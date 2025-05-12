@@ -2,12 +2,12 @@ import Link from "next/link";
 
 function Navbar() {
   return (
-    <nav className="bg-transparent px-6 py-4" aria-label="Main Navigation">
+    <nav className="bg-transparent py-4" aria-label="Main Navigation">
       <div className="flex items-center justify-between w-full">
         {/* برند */}
         <Link
           href="/"
-          className="text-[#16f2b3] text-2xl font-bold whitespace-nowrap"
+          className="text-[#16f2b3] text-xl sm:text-2xl font-bold whitespace-nowrap"
         >
           AmirHossein Aghamohammadi
         </Link>
