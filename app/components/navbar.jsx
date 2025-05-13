@@ -2,7 +2,7 @@ import Link from "next/link";
 
 function Navbar() {
   return (
-    <nav className="bg-transparent py-4" aria-label="Main Navigation">
+    <nav className="container bg-transparent py-4" aria-label="Main Navigation">
       <div className="flex items-center justify-between w-full">
         {/* برند */}
         <Link
