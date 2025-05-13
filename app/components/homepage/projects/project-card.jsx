@@ -1,4 +1,5 @@
 import * as React from "react";
+import { FaExternalLinkAlt, FaCodeBranch } from "react-icons/fa";
 
 function ProjectCard({ project }) {
   return (
@@ -60,6 +61,43 @@ function ProjectCard({ project }) {
           </div>
         </code>
       </div>
+      <div className="flex flex-wrap items-center border-t-[2px] border-indigo-900 gap-3 mt-6 py-4 px-4 lg:px-8">
+        {project.demo && (
+          <a
+            href={project.demo}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-sm font-medium text-cyan-400 hover:text-cyan-300 transition-colors"
+          >
+            <FaExternalLinkAlt className="w-4 h-4" />
+            <span>see demo</span>
+          </a>
+        )}
+        {project.code && (
+          <a
+            href={project.code}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-sm font-medium text-emerald-400 hover:text-emerald-300 transition-colors"
+          >
+            <FaCodeBranch className="w-4 h-4" />
+            <span>source code</span>
+          </a>
+        )}
+      </div>
+
+      {project.features && project.features.length > 0 && (
+        <div className="mt-4 px-4 lg:px-8 pb-4">
+          <h4 className="text-sm font-semibold text-indigo-300 mb-2">
+            features:
+          </h4>
+          <ul className="list-disc list-inside text-sm text-gray-300 space-y-1 leading-relaxed">
+            {project.features.map((feature, idx) => (
+              <li key={idx}>{feature}</li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

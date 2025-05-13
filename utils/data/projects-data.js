@@ -14,7 +14,7 @@ export const projectsData = [
     ],
     role: "Frontend Developer",
     code: "",
-    demo: "",
+    demo: "https://coffee-puce.vercel.app",
   },
   {
     id: 2,
@@ -31,7 +31,7 @@ export const projectsData = [
     ],
     role: "Frontend Developer",
     code: "",
-    demo: "",
+    demo: "https://100gram.ir",
   },
   {
     id: 3,
@@ -48,7 +48,7 @@ export const projectsData = [
     ],
     role: "Full Stack Developer",
     code: "",
-    demo: "",
+    demo: "https://pishro-0.vercel.app",
   },
   {
     id: 4,
@@ -66,7 +66,7 @@ export const projectsData = [
     ],
     role: "Full Stack Developer",
     code: "",
-    demo: "",
+    demo: "https://nodia.ir",
   },
 ];
 
@@ -80,5 +80,5 @@ export const projectsData = [
 //     tools: [],
 //     role: '',
 //     code: '',
-//     demo: '',
+//     demo: 'https://',
 // },
