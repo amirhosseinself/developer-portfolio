@@ -7,8 +7,12 @@ import AboutSection from "./components/homepage/about";
 import Projects from "./components/homepage/projects";
 import ContactSection from "./components/homepage/contact";
 import Skills from "./components/homepage/skills";
-import Experience from "./components/homepage/experience";
-import Education from "./components/homepage/education";
+const Experience = dynamic(() => import("./components/homepage/experience"), {
+  ssr: false,
+});
+const Education = dynamic(() => import("./components/homepage/education"), {
+  ssr: false,
+});
 
 export default function Home() {
   return (
