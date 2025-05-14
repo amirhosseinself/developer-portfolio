@@ -1,12 +1,14 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 const GlowCard = ({ children, identifier }) => {
+  const containerRef = useRef(null);
+  const cardRefs = useRef([]); // store multiple cards
+
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const CONTAINER = document.querySelector(`.glow-container-${identifier}`);
-    const CARDS = document.querySelectorAll(`.glow-card-${identifier}`);
+    if (!containerRef.current || cardRefs.current.length === 0) return;
 
     const CONFIG = {
       proximity: 40,
@@ -18,7 +20,7 @@ const GlowCard = ({ children, identifier }) => {
     };
 
     const UPDATE = (event) => {
-      for (const CARD of CARDS) {
+      cardRefs.current.forEach((CARD) => {
         const CARD_BOUNDS = CARD.getBoundingClientRect();
 
         if (
@@ -27,9 +29,9 @@ const GlowCard = ({ children, identifier }) => {
           event?.y > CARD_BOUNDS.top - CONFIG.proximity &&
           event?.y < CARD_BOUNDS.top + CARD_BOUNDS.height + CONFIG.proximity
         ) {
-          CARD.style.setProperty("--active", 1);
+          CARD.style.setProperty("--active", "1");
         } else {
-          CARD.style.setProperty("--active", CONFIG.opacity);
+          CARD.style.setProperty("--active", CONFIG.opacity.toString());
         }
 
         const CARD_CENTER = [
@@ -38,40 +40,48 @@ const GlowCard = ({ children, identifier }) => {
         ];
 
         let ANGLE =
-          (Math.atan2(event?.y - CARD_CENTER[1], event?.x - CARD_CENTER[0]) *
+          (Math.atan2(event.y - CARD_CENTER[1], event.x - CARD_CENTER[0]) *
             180) /
           Math.PI;
 
         ANGLE = ANGLE < 0 ? ANGLE + 360 : ANGLE;
 
-        CARD.style.setProperty("--start", ANGLE + 90);
-      }
+        CARD.style.setProperty("--start", `${ANGLE + 90}`);
+      });
     };
 
-    document.body.addEventListener("pointermove", UPDATE);
-
     const RESTYLE = () => {
-      CONTAINER.style.setProperty("--gap", CONFIG.gap);
-      CONTAINER.style.setProperty("--blur", CONFIG.blur);
-      CONTAINER.style.setProperty("--spread", CONFIG.spread);
+      const CONTAINER = containerRef.current;
+      if (!CONTAINER) return;
+      CONTAINER.style.setProperty("--gap", CONFIG.gap.toString());
+      CONTAINER.style.setProperty("--blur", CONFIG.blur.toString());
+      CONTAINER.style.setProperty("--spread", CONFIG.spread.toString());
       CONTAINER.style.setProperty(
         "--direction",
         CONFIG.vertical ? "column" : "row"
       );
     };
 
+    document.body.addEventListener("pointermove", UPDATE);
     RESTYLE();
-    UPDATE();
+    UPDATE(new PointerEvent("pointermove", { x: 0, y: 0 }));
 
-    // Cleanup event listener
     return () => {
       document.body.removeEventListener("pointermove", UPDATE);
     };
   }, [identifier]);
 
   return (
-    <div className={`glow-container-${identifier} glow-container`}>
+    <div
+      ref={containerRef}
+      className={`glow-container-${identifier} glow-container`}
+    >
       <article
+        ref={(el) => {
+          if (el && !cardRefs.current.includes(el)) {
+            cardRefs.current.push(el); // Store ref
+          }
+        }}
         className={`glow-card glow-card-${identifier} h-fit cursor-pointer border border-[#2a2e5a] transition-all duration-300 relative bg-[#101123] text-gray-200 rounded-xl hover:border-transparent w-full`}
       >
         <div className="glows"></div>
