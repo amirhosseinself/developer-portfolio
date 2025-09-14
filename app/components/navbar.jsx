@@ -13,7 +13,7 @@ function Navbar() {
         </Link>
 
         {/* لینک‌ها (فقط در حالت دسکتاپ نمایش داده می‌شن) */}
-        <ul className="hidden md:flex md:items-center md:space-x-6">
+        <ul className="hidden lg:flex md:items-center space-x-2 xl:space-x-6">
           {[
             { href: "/#about", label: "ABOUT" },
             { href: "/#experience", label: "EXPERIENCE" },

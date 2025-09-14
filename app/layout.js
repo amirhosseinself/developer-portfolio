@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <ToastContainer />
-        <main className="min-h-screen relative text-white">
+        <main className="min-h-screen relative text-white overflow-x-hidden">
           <Navbar />
           {children}
           <ScrollToTop />
