@@ -13,5 +13,5 @@ Passionate about creating impactful digital products, I continuously strive to i
   github: "https://github.com/amirhosseinself",
   linkedIn: "https://www.linkedin.com/in/amirhossein-aghamohammadi/",
   twitter: "https://x.com/amirhossein8801",
-  telegramUsername: "amirhosseinv2",
+  telegramUsername: "https://t.me/amirhossein_v2",
 };
