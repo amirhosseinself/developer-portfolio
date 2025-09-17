@@ -12,6 +12,6 @@ Passionate about creating impactful digital products, I continuously strive to i
   address: "Qazvin, Iran",
   github: "https://github.com/amirhosseinself",
   linkedIn: "https://www.linkedin.com/in/amirhossein-aghamohammadi/",
-  twitter: "https://x.com/amirhosseinself",
+  twitter: "https://x.com/amirhossein8801",
   telegramUsername: "amirhosseinv2",
 };
