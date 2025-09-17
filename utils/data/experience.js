@@ -14,7 +14,7 @@ export const experiences = [
   {
     id: 3,
     title: "Frontend Developer",
-    company: "Dena Company",
+    company: "DinaWeb Company",
     duration: "(2021 - 2022)",
   },
 ];
