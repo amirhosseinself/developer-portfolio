@@ -4,5 +4,5 @@ export const contactsData = {
   address: "Alvand, Qazvin, Iran",
   github: "https://github.com/amirhosseinself",
   linkedIn: "https://www.linkedin.com/in/amirhossein-aghamohammadi/",
-  telegramUsername: "amirhosseinself",
+  telegramUsername: "amirhosseinv2",
 };
