@@ -1,7 +1,11 @@
 import { personalData } from "@/utils/data/personal-data";
 import Image from "next/image";
+import { Typewriter } from "react-simple-typewriter";
+import { useState } from "react";
 
 function AboutSection() {
+  const [showCursor, setShowCursor] = useState(true);
+
   return (
     <div id="about" className="container my-12 lg:my-16 relative">
       <div className="hidden lg:flex flex-col items-center absolute top-16 -right-8">
@@ -10,15 +14,28 @@ function AboutSection() {
         </span>
         <span className="h-36 w-[2px] bg-[#1a1443]"></span>
       </div>
+
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
+        {/* متن معرفی */}
         <div className="order-2 lg:order-1">
           <p className="font-medium mb-5 text-[#16f2b3] text-xl">Who am I?</p>
           <p className="text-gray-200 text-sm lg:text-lg">
-            {personalData.description}
+            <Typewriter
+              words={[personalData.description]}
+              cursor={showCursor}
+              cursorStyle="|"
+              typeSpeed={10}
+              deleteSpeed={0}
+              delaySpeed={1000}
+              loop={1}
+              onLoopDone={() => setShowCursor(false)} // وقتی تایپ تموم شد کرسر حذف میشه
+            />
           </p>
         </div>
+
+        {/* عکس پروفایل */}
         <div className="flex justify-center order-1 lg:order-2 lg:p-9">
-          <div className="relative w-64 h-64 lg:w-full lg:h-full">
+          <div className="relative aspect-square w-full h-full">
             <Image
               src={personalData.profile}
               fill

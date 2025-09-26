@@ -5,6 +5,7 @@ import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { FaTwitterSquare } from "react-icons/fa";
 import { FaTelegram } from "react-icons/fa6";
 import { RiContactsFill } from "react-icons/ri";
+import { Typewriter } from "react-simple-typewriter";
 
 function HeroSection() {
   return (
@@ -22,8 +23,22 @@ function HeroSection() {
           <h1 className="text-3xl font-bold leading-10 text-white md:font-extrabold lg:text-[2.6rem] lg:leading-[3.5rem]">
             Hello, <br />
             This is <span className=" text-pink-500">{personalData.name}</span>
-            {` , I'm a Professional `}
-            <span className=" text-[#16f2b3]">{personalData.designation}</span>.
+            <br />
+            <span className=" text-[#16f2b3]">
+              <Typewriter
+                words={[
+                  personalData.designation,
+                  "Frontend Developer",
+                  "Problem Solver",
+                ]}
+                loop={true}
+                cursor
+                cursorStyle="|"
+                typeSpeed={60}
+                deleteSpeed={30}
+                delaySpeed={1500}
+              />
+            </span>
           </h1>
 
           <div className="my-12 flex items-center gap-5">
