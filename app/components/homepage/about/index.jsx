@@ -2,50 +2,53 @@ import { personalData } from "@/utils/data/personal-data";
 import Image from "next/image";
 import { Typewriter } from "react-simple-typewriter";
 import { useState } from "react";
+import SectionWrapper from "../../helper/section-wrapper";
 
 function AboutSection() {
   const [showCursor, setShowCursor] = useState(true);
 
   return (
-    <div id="about" className="container my-12 lg:my-16 relative">
-      <div className="hidden lg:flex flex-col items-center absolute top-16 -right-8">
-        <span className="bg-[#1a1443] w-fit text-white rotate-90 p-2 px-5 text-xl rounded-md">
-          ABOUT ME
-        </span>
-        <span className="h-36 w-[2px] bg-[#1a1443]"></span>
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
-        {/* متن معرفی */}
-        <div className="order-2 lg:order-1">
-          <p className="font-medium mb-5 text-[#16f2b3] text-xl">Who am I?</p>
-          <p className="text-gray-200 text-sm lg:text-lg">
-            <Typewriter
-              words={[personalData.description]}
-              cursor={showCursor}
-              cursorStyle="|"
-              typeSpeed={10}
-              deleteSpeed={0}
-              delaySpeed={1000}
-              loop={1}
-              onLoopDone={() => setShowCursor(false)} // وقتی تایپ تموم شد کرسر حذف میشه
-            />
-          </p>
+    <SectionWrapper>
+      <div id="about" className="container my-12 lg:my-16 relative">
+        <div className="hidden lg:flex flex-col items-center absolute top-16 -right-8">
+          <span className="bg-[#1a1443] w-fit text-white rotate-90 p-2 px-5 text-xl rounded-md">
+            ABOUT ME
+          </span>
+          <span className="h-36 w-[2px] bg-[#1a1443]"></span>
         </div>
 
-        {/* عکس پروفایل */}
-        <div className="flex justify-center order-1 lg:order-2 lg:p-9">
-          <div className="relative aspect-square w-full h-full">
-            <Image
-              src={personalData.profile}
-              fill
-              alt="amirhossein"
-              className="rounded-lg transition-all duration-1000 grayscale hover:grayscale-0 hover:scale-110 cursor-pointer object-cover"
-            />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
+          {/* متن معرفی */}
+          <div className="order-2 lg:order-1">
+            <p className="font-medium mb-5 text-[#16f2b3] text-xl">Who am I?</p>
+            <p className="text-gray-200 text-sm lg:text-lg">
+              <Typewriter
+                words={[personalData.description]}
+                cursor={showCursor}
+                cursorStyle="|"
+                typeSpeed={10}
+                deleteSpeed={0}
+                delaySpeed={1000}
+                loop={1}
+                onLoopDone={() => setShowCursor(false)} // وقتی تایپ تموم شد کرسر حذف میشه
+              />
+            </p>
+          </div>
+
+          {/* عکس پروفایل */}
+          <div className="flex justify-center order-1 lg:order-2 lg:p-9">
+            <div className="relative aspect-square w-full h-full">
+              <Image
+                src={personalData.profile}
+                fill
+                alt="amirhossein"
+                className="rounded-lg transition-all duration-1000 grayscale hover:grayscale-0 hover:scale-110 cursor-pointer object-cover"
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </SectionWrapper>
   );
 }
 
