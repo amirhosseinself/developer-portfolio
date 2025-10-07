@@ -42,7 +42,7 @@ function AboutSection() {
                 src={personalData.profile}
                 fill
                 alt="amirhossein"
-                className="rounded-lg transition-all duration-1000 grayscale hover:grayscale-0 hover:scale-110 cursor-pointer object-cover"
+                className="rounded-lg transition-all duration-1000 grayscale hover:grayscale-0 hover:scale-[1.01] cursor-pointer object-cover"
               />
             </div>
           </div>
